@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LA Digital | Web Design for Louisiana Businesses</title>
+<meta name="description" content="LA Digital builds professional websites for Louisiana small businesses. Fast 5-day delivery, mobile optimized, and built to get you found online. Based in Southern Louisiana, serving businesses statewide.">
+<meta name="keywords" content="web design Louisiana, Louisiana web design agency, Southern Louisiana web design, small business website Louisiana, local business web design">
+<meta name="author" content="LA Digital">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="LA Digital | We Build. You Grow.">
+<meta property="og:description" content="Professional websites for Louisiana businesses. Fast, affordable, and built to get you found online.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ladigitalco.netlify.app">
+<meta property="og:image" content="la_digital_icon_navy_square.png">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LA Digital | We Build. You Grow.">
+<meta name="twitter:description" content="Professional websites for Louisiana businesses. Fast, affordable, and built to get you found online.">
+<meta name="twitter:image" content="la_digital_icon_navy_square.png">
+
+<link rel="icon" type="image/png" href="la_digital_icon_navy_square.png">
+<link rel="canonical" href="https://ladigitalco.netlify.app">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #0d0f1a;
+  --navy-2:     #131625;
+  --navy-3:     #1a1d2e;
+  --blue:       #2563eb;
+  --blue-light: #4f8ef7;
+  --gold:       #c9a84c;
+  --white:      #ffffff;
+  --off-white:  #f0ede8;
+  --gray-1:     #a0aabb;
+  --gray-2:     #5a6478;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'Outfit', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--navy); color: var(--white); overflow-x: hidden; }
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  display: flex; align-items:center; justify-content:space-between;
+  padding: 24px 60px;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(13,15,26,0.94);
+  backdrop-filter: blur(20px);
+  padding: 14px 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+.nav-logo-mark {
+  width:36px; height:36px; border-radius:8px;
+  background: linear-gradient(135deg, var(--blue), #1a4fbd);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--serif); font-size:14px; font-weight:700; color:#fff;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.4);
+}
+.nav-brand { font-family:var(--serif); font-size:20px; font-weight:700; color:#fff; }
+.nav-links { display:flex; align-items:center; gap:40px; }
+.nav-links a { color:var(--gray-1); font-size:14px; font-weight:400; text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:#fff; }
+.nav-btn {
+  border: 1px solid rgba(37,99,235,0.6) !important;
+  color: var(--blue-light) !important;
+  padding: 9px 22px; border-radius: 6px;
+  font-weight: 500 !important; font-size: 13px !important;
+}
+.nav-btn:hover { background: var(--blue) !important; border-color: var(--blue) !important; color:#fff !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display:flex; align-items:center;
+  padding: 160px 60px 100px; position:relative; overflow:hidden;
+}
+.hero-glow {
+  position:absolute; width:800px; height:800px; border-radius:50%;
+  background: radial-gradient(circle, rgba(37,99,235,0.14) 0%, transparent 65%);
+  right:-150px; top:-50px; pointer-events:none;
+}
+.hero-lines {
+  position:absolute; inset:0; pointer-events:none;
+  background-image: repeating-linear-gradient(
+    0deg, transparent, transparent 79px,
+    rgba(255,255,255,0.022) 79px, rgba(255,255,255,0.022) 80px
+  );
+}
+.hero-inner { max-width:1100px; margin:0 auto; width:100%; position:relative; z-index:2; }
+.hero-tag {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1px solid rgba(201,168,76,0.35); background:rgba(201,168,76,0.07);
+  padding:7px 16px; border-radius:40px;
+  font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:32px;
+}
+.tag-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:blink 2s infinite; }
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+h1.hero-title {
+  font-family:var(--serif); font-size:clamp(56px,8vw,108px);
+  font-weight:900; line-height:0.94; letter-spacing:-0.02em; margin-bottom:32px;
+}
+.title-outline { color:transparent; -webkit-text-stroke:1.5px rgba(255,255,255,0.3); }
+.title-italic { font-style:italic; color:var(--blue-light); -webkit-text-stroke:0; }
+.hero-sub {
+  font-size:17px; font-weight:300; color:var(--gray-1); line-height:1.75;
+  max-width:500px; margin-bottom:48px;
+}
+.hero-actions { display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:56px; }
+.btn-gold {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--gold),#a88430);
+  color:var(--navy); padding:15px 34px; border-radius:6px;
+  font-family:var(--sans); font-size:14px; font-weight:600;
+  letter-spacing:0.04em; text-transform:uppercase;
+  text-decoration:none; border:none; cursor:pointer;
+  box-shadow:0 6px 28px rgba(201,168,76,0.35); transition:all 0.25s;
+}
+.btn-gold:hover { transform:translateY(-2px); box-shadow:0 10px 36px rgba(201,168,76,0.45); }
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:8px;
+  background:transparent; color:var(--gray-1);
+  padding:15px 28px; border-radius:6px;
+  font-family:var(--sans); font-size:14px; font-weight:400;
+  text-decoration:none; border:1px solid rgba(255,255,255,0.1);
+  transition:all 0.25s; cursor:pointer;
+}
+.btn-ghost:hover { color:#fff; border-color:rgba(255,255,255,0.25); background:rgba(255,255,255,0.04); }
+.hero-proof { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.proof-avatars { display:flex; }
+.proof-avatars span {
+  width:36px; height:36px; border-radius:50%; border:2px solid var(--navy);
+  background:linear-gradient(135deg,var(--navy-3),var(--blue));
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:600; color:#fff; margin-left:-10px;
+}
+.proof-avatars span:first-child{margin-left:0}
+.proof-text { font-size:13px; color:var(--gray-1); font-weight:300; }
+.proof-text strong { color:#fff; font-weight:600; }
+.proof-div { width:1px; height:28px; background:rgba(255,255,255,0.1); }
+.stars { color:var(--gold); font-size:13px; letter-spacing:1px; }
+
+/* MARQUEE */
+.marquee-wrap {
+  border-top:1px solid rgba(255,255,255,0.06);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  background:var(--navy-2); padding:18px 0; overflow:hidden;
+}
+.marquee-track {
+  display:flex; gap:64px; width:max-content;
+  animation:marquee 24s linear infinite;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item {
+  font-size:11px; font-weight:500; letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--gray-2); white-space:nowrap; display:flex; align-items:center; gap:20px;
+}
+.marquee-item::after{content:'·';color:var(--blue);font-size:18px;}
+
+/* SECTION */
+.sec { padding:110px 60px; }
+.sec-inner { max-width:1200px; margin:0 auto; }
+.sec-label {
+  font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--blue-light); margin-bottom:18px;
+  display:flex; align-items:center; gap:12px;
+}
+.sec-label::before{content:'';width:24px;height:1px;background:var(--blue);display:block;}
+h2.sec-title {
+  font-family:var(--serif); font-size:clamp(34px,4vw,60px);
+  font-weight:700; line-height:1.06; letter-spacing:-0.01em; margin-bottom:20px;
+}
+.sec-sub { font-size:16px; color:var(--gray-1); line-height:1.75; font-weight:300; max-width:520px; }
+
+/* SERVICES */
+.services-sec { background:var(--navy-2); }
+.services-intro { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:60px; gap:40px; flex-wrap:wrap; }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.svc {
+  background:var(--navy-3); padding:48px 38px;
+  border:1px solid rgba(255,255,255,0.06); position:relative; overflow:hidden;
+  transition:border-color 0.3s, background 0.3s; cursor:default;
+}
+.svc::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,var(--blue),transparent);
+  opacity:0; transition:opacity 0.3s;
+}
+.svc:hover{border-color:rgba(37,99,235,0.3);background:#1c1f31;}
+.svc:hover::before{opacity:1;}
+.svc.featured{border-color:rgba(37,99,235,0.4);background:#1c2038;}
+.svc.featured::before{opacity:1;}
+.svc-badge {
+  display:inline-block; font-size:10px; font-weight:600; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--blue-light);
+  border:1px solid rgba(37,99,235,0.4); border-radius:4px;
+  padding:4px 10px; margin-bottom:28px;
+}
+.svc-num {
+  font-family:var(--serif); font-size:68px; font-weight:900;
+  color:rgba(255,255,255,0.04); line-height:1;
+  position:absolute; top:20px; right:28px;
+}
+.svc-icon{font-size:30px;margin-bottom:18px;}
+.svc-name{font-family:var(--serif);font-size:26px;font-weight:700;margin-bottom:10px;}
+.svc-price{font-size:14px;color:var(--blue-light);font-weight:500;letter-spacing:0.04em;margin-bottom:18px;}
+.svc-desc{font-size:14px;color:var(--gray-1);line-height:1.75;margin-bottom:26px;font-weight:300;}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.svc-list li{font-size:13px;color:rgba(255,255,255,0.65);display:flex;align-items:center;gap:10px;}
+.svc-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--blue-light);flex-shrink:0;}
+.svc-cta{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--blue-light);text-decoration:none;margin-top:30px;transition:gap 0.2s;}
+.svc-cta:hover{gap:10px;}
+.maintenance-bar {
+  margin-top:40px; padding:26px 34px;
+  background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:10px;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+}
+.maintenance-bar p{font-size:13px;color:var(--gray-1);font-weight:300;}
+.maintenance-bar strong{color:#fff;font-weight:500;display:block;margin-bottom:4px;font-size:15px;}
+
+/* PROCESS */
+.process-sec{background:var(--navy);}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:70px;}
+.proc{position:relative;padding-top:16px;}
+.proc-n{font-family:var(--serif);font-size:72px;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;margin-bottom:14px;}
+.proc-line{width:100%;height:1px;background:linear-gradient(90deg,var(--blue),transparent);margin-bottom:26px;}
+.proc-icon{font-size:26px;margin-bottom:14px;}
+.proc-title{font-family:var(--serif);font-size:21px;font-weight:700;margin-bottom:10px;}
+.proc-desc{font-size:14px;color:var(--gray-1);line-height:1.75;font-weight:300;}
+
+/* RESULTS */
+.results-sec{background:var(--navy-2);}
+.results-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:70px;}
+.result-item{display:flex;gap:24px;align-items:flex-start;padding:26px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.result-item:first-child{border-top:1px solid rgba(255,255,255,0.06);}
+.result-num{font-family:var(--serif);font-size:40px;font-weight:700;color:var(--blue-light);line-height:1;white-space:nowrap;min-width:88px;}
+.result-title{font-size:16px;font-weight:600;margin-bottom:5px;}
+.result-desc{font-size:14px;color:var(--gray-1);line-height:1.7;font-weight:300;}
+.results-right{display:flex;flex-direction:column;gap:14px;}
+.testimonial{background:var(--navy-3);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:26px 28px;position:relative;}
+.testimonial::before{content:'"';font-family:var(--serif);font-size:72px;font-weight:900;color:rgba(37,99,235,0.12);position:absolute;top:-8px;left:18px;line-height:1;}
+.test-stars{color:var(--gold);font-size:11px;letter-spacing:2px;margin-bottom:10px;}
+.test-text{font-size:14px;color:rgba(255,255,255,0.7);line-height:1.75;font-style:italic;margin-bottom:14px;font-weight:300;}
+.test-author{font-size:12px;color:var(--gray-2);font-weight:500;}
+.test-author strong{color:var(--gray-1);}
+
+/* CTA */
+.cta-sec{
+  padding:120px 60px; text-align:center;
+  background:linear-gradient(180deg,var(--navy-2) 0%,var(--navy) 100%);
+  position:relative; overflow:hidden;
+}
+.cta-sec::before{
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(37,99,235,0.09) 0%,transparent 70%);
+}
+.cta-inner{max-width:660px;margin:0 auto;position:relative;z-index:2;}
+.cta-tag{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue-light);border:1px solid rgba(37,99,235,0.3);border-radius:4px;padding:6px 14px;margin-bottom:28px;}
+h2.cta-title{font-family:var(--serif);font-size:clamp(36px,5vw,68px);font-weight:700;line-height:1.06;letter-spacing:-0.01em;margin-bottom:18px;}
+.cta-sub{font-size:16px;color:var(--gray-1);line-height:1.75;font-weight:300;margin-bottom:48px;}
+.cta-form{display:flex;flex-direction:column;gap:12px;max-width:440px;margin:0 auto;}
+.cta-form input{
+  width:100%;padding:15px 18px;
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
+  border-radius:8px;color:#fff;font-family:var(--sans);font-size:14px;font-weight:300;
+  outline:none;transition:border-color 0.2s;
+}
+.cta-form input::placeholder{color:var(--gray-2);}
+.cta-form input:focus{border-color:rgba(37,99,235,0.5);}
+.cta-submit{
+  width:100%;padding:16px;
+  background:linear-gradient(135deg,var(--blue),#1a4fbd);
+  color:#fff;border:none;border-radius:8px;
+  font-family:var(--sans);font-size:14px;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  cursor:pointer;transition:all 0.25s;
+  box-shadow:0 6px 28px rgba(37,99,235,0.35);
+}
+.cta-submit:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(37,99,235,0.5);}
+.cta-note{font-size:12px;color:var(--gray-2);margin-top:8px;}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:48px 60px;}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+.footer-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.footer-mark{width:32px;height:32px;border-radius:7px;background:linear-gradient(135deg,var(--blue),#1a4fbd);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:12px;font-weight:700;color:#fff;}
+.footer-brand{font-family:var(--serif);font-size:18px;font-weight:700;color:#fff;}
+.footer-links{display:flex;gap:32px;}
+.footer-links a{font-size:13px;color:var(--gray-2);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:#fff;}
+.footer-tagline{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--gray-2);}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.2);width:100%;text-align:center;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade.visible{opacity:1;transform:translateY(0);}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:190;
+  background:rgba(13,15,26,0.98);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:36px;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:var(--serif);font-size:32px;font-weight:700;color:#fff;text-decoration:none;transition:color 0.2s;}
+.mobile-menu a:hover{color:var(--blue-light);}
+.mobile-menu .mob-cta{font-size:18px;color:var(--blue-light) !important;border:1px solid rgba(37,99,235,0.5);padding:14px 36px;border-radius:8px;}
+.mobile-menu .mob-phone{font-family:var(--sans);font-size:16px;color:var(--gray-1) !important;margin-top:16px;}
+
+/* MOBILE */
+@media(max-width:960px){
+  nav,nav.scrolled{padding:16px 24px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero,.sec,.cta-sec{padding-left:24px;padding-right:24px;}
+  h1.hero-title{font-size:clamp(42px,11vw,68px);}
+  .services-grid{grid-template-columns:1fr;}
+  .process-grid{grid-template-columns:1fr 1fr;}
+  .results-layout{grid-template-columns:1fr;gap:40px;}
+  .about-grid{grid-template-columns:1fr !important;gap:40px !important;}
+  footer{padding:36px 24px;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">LA</div>
+    <span class="nav-brand">Digital</span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#results">Results</a>
+    <a href="#testimonial">Reviews</a>
+    <a href="#contact" class="nav-btn">Free Audit</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#process" onclick="closeMobile()">Process</a>
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#results" onclick="closeMobile()">Results</a>
+  <a href="#testimonial" onclick="closeMobile()">Reviews</a>
+  <a href="#contact" class="mob-cta" onclick="closeMobile()">Free Audit</a>
+  <a href="tel:9852460884" class="mob-phone" onclick="closeMobile()">(985) 246-0884</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="tag-dot"></span>Louisiana's Web Design Agency</div>
+    <h1 class="hero-title">
+      We Build.<br>
+      <span class="title-outline">You</span> <em class="title-italic">Grow.</em>
+    </h1>
+    <p class="hero-sub">Professional websites that help Louisiana businesses get found online, win more customers, and look like the best in their industry.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Get a Free Audit →</a>
+      <a href="#services" class="btn-ghost">View Services</a>
+    </div>
+    <div class="hero-proof">
+      <a href="tel:9852460884" style="font-size:13px;color:var(--gray-1);text-decoration:none;display:inline-flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--gray-1)'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        (985) 246-0884
+      </a>
+      <div class="proof-div"></div>
+      <a href="https://www.linkedin.com/company/ladigitalco/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--gray-1);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--gray-1)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Follow on LinkedIn
+      </a>
+      <div class="proof-div"></div>
+      <span style="font-size:12px;color:var(--gray-2);font-style:italic;">Southern Louisiana Web Design</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Web Design</span>
+    <span class="marquee-item">Mobile Optimized</span>
+    <span class="marquee-item">SEO Ready</span>
+    <span class="marquee-item">Serving Louisiana</span>
+    <span class="marquee-item">5-Day Delivery</span>
+    <span class="marquee-item">We Build · You Grow</span>
+    <span class="marquee-item">Web Design</span>
+    <span class="marquee-item">Mobile Optimized</span>
+    <span class="marquee-item">SEO Ready</span>
+    <span class="marquee-item">Serving Louisiana</span>
+    <span class="marquee-item">5-Day Delivery</span>
+    <span class="marquee-item">We Build · You Grow</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="sec services-sec">
+  <div class="sec-inner">
+    <div class="services-intro fade">
+      <div>
+        <div class="sec-label">What We Offer</div>
+        <h2 class="sec-title">Everything your business<br>needs online.</h2>
+      </div>
+      <p class="sec-sub">Every website is custom-built for your business. No templates. No cookie-cutter designs. Just clean, professional work that converts visitors into customers.</p>
+    </div>
+    <div class="services-grid fade">
+      <div class="svc">
+        <div class="svc-num">01</div>
+        <div class="svc-badge">Launch</div>
+        <div class="svc-icon">✦</div>
+        <div class="svc-name">Launch Package</div>
+        <div class="svc-price">Starting at $500</div>
+        <p class="svc-desc">Perfect for new businesses that need a clean, professional presence fast. Everything you need, nothing you don't.</p>
+        <ul class="svc-list">
+          <li>5-page custom website</li>
+          <li>Mobile responsive design</li>
+          <li>Contact form setup</li>
+          <li>Google Maps integration</li>
+          <li>Basic SEO foundation</li>
+          <li>Delivered in 5 days</li>
+        </ul>
+        <a href="#contact" class="svc-cta">Get a quote →</a>
+      </div>
+      <div class="svc featured">
+        <div class="svc-num">02</div>
+        <div class="svc-badge" style="color:var(--gold);border-color:rgba(201,168,76,0.4);">Most Popular</div>
+        <div class="svc-icon">◆</div>
+        <div class="svc-name">Growth Package</div>
+        <div class="svc-price">Starting at $1,000</div>
+        <p class="svc-desc">For established businesses ready to dominate locally. More pages, more features, more customers finding you.</p>
+        <ul class="svc-list">
+          <li>8-page custom website</li>
+          <li>Blog or news section</li>
+          <li>Booking or quote system</li>
+          <li>Google Analytics setup</li>
+          <li>Full SEO optimization</li>
+          <li>2 rounds of revisions</li>
+        </ul>
+        <a href="#contact" class="svc-cta" style="color:var(--gold);">Get a quote →</a>
+      </div>
+      <div class="svc">
+        <div class="svc-num">03</div>
+        <div class="svc-badge">Authority</div>
+        <div class="svc-icon">❋</div>
+        <div class="svc-name">Authority Package</div>
+        <div class="svc-price">Starting at $2,000</div>
+        <p class="svc-desc">The complete solution for businesses serious about owning their market. Full-service, white-glove delivery.</p>
+        <ul class="svc-list">
+          <li>Unlimited pages</li>
+          <li>E-commerce or booking</li>
+          <li>Advanced SEO strategy</li>
+          <li>Speed optimization</li>
+          <li>1 month free maintenance</li>
+          <li>Priority support</li>
+        </ul>
+        <a href="#contact" class="svc-cta">Get a quote →</a>
+      </div>
+    </div>
+    <div class="maintenance-bar fade">
+      <div>
+        <strong>Need ongoing support?</strong>
+        <p>Monthly maintenance plans keep your site fast, secure, and up to date — starting at $150/mo.</p>
+      </div>
+      <a href="#contact" class="btn-ghost" style="font-size:13px;padding:11px 24px;white-space:nowrap;">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="sec process-sec">
+  <div class="sec-inner">
+    <div class="fade">
+      <div class="sec-label">How It Works</div>
+      <h2 class="sec-title">From first call to live site<br>in days, not months.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="proc fade">
+        <div class="proc-n">01</div>
+        <div class="proc-line"></div>
+        <div class="proc-icon">📋</div>
+        <div class="proc-title">Discovery Call</div>
+        <p class="proc-desc">A focused 20-minute call to understand your business, your customers, and what success looks like for you.</p>
+      </div>
+      <div class="proc fade">
+        <div class="proc-n">02</div>
+        <div class="proc-line"></div>
+        <div class="proc-icon">🎨</div>
+        <div class="proc-title">Design & Build</div>
+        <p class="proc-desc">We build your custom site using your brand, your voice, and your goals. You see a preview before anything goes live.</p>
+      </div>
+      <div class="proc fade">
+        <div class="proc-n">03</div>
+        <div class="proc-line"></div>
+        <div class="proc-icon">✏️</div>
+        <div class="proc-title">Review & Refine</div>
+        <p class="proc-desc">Two rounds of revisions. We refine every detail until the site is exactly what you envisioned.</p>
+      </div>
+      <div class="proc fade">
+        <div class="proc-n">04</div>
+        <div class="proc-line"></div>
+        <div class="proc-icon">🚀</div>
+        <div class="proc-title">Launch & Grow</div>
+        <p class="proc-desc">We handle the full technical launch — hosting, domain, Google indexing. Your business goes live and starts getting found.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="sec" style="background:var(--navy);">
+  <div class="sec-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="about-grid">
+      <div class="fade">
+        <div class="sec-label">Our Story</div>
+        <h2 class="sec-title">Born and raised<br>in Louisiana.</h2>
+        <p style="font-size:16px;color:var(--gray-1);line-height:1.85;font-weight:300;margin-bottom:24px;">I grew up in Madisonville, LA — a small town on the Tchefuncte River where everybody knows everybody and local businesses are the backbone of the community.</p>
+        <p style="font-size:16px;color:var(--gray-1);line-height:1.85;font-weight:300;margin-bottom:24px;">I started LA Digital because I wanted to find a way to help local business owners grow their businesses in ways they could have never imagined. The restaurants, contractors, salons, and shops that make Louisiana what it is deserve a real online presence — not a cookie-cutter template that looks like every other site on the internet.</p>
+        <p style="font-size:16px;color:var(--gray-1);line-height:1.85;font-weight:300;margin-bottom:36px;">That's what LA Digital is built on. Local roots. Real results.</p>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+          <a href="#contact" class="btn-gold" style="font-size:13px;padding:12px 28px;">Work With Us →</a>
+          <a href="tel:9852460884" style="font-size:14px;color:var(--gray-1);text-decoration:none;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--gray-1)'">(985) 246-0884</a>
+        </div>
+      </div>
+      <div class="fade">
+        <div style="background:var(--navy-2);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:44px 40px;">
+          <div style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-light);margin-bottom:28px;font-weight:500;">Service Area</div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="background:var(--navy-3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px 26px;display:flex;align-items:center;gap:18px;">
+              <div style="font-size:32px;">📍</div>
+              <div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:4px;">Based in Southern Louisiana</div>
+                <div style="font-size:13px;color:var(--gray-1);font-weight:300;">Rooted in the community we serve.</div>
+              </div>
+            </div>
+            <div style="background:var(--navy-3);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:24px 26px;display:flex;align-items:center;gap:18px;">
+              <div style="font-size:32px;">🌎</div>
+              <div>
+                <div style="font-size:16px;font-weight:600;margin-bottom:4px;">Serving All of Louisiana</div>
+                <div style="font-size:13px;color:var(--gray-1);font-weight:300;">We work with businesses statewide — in person or fully remote.</div>
+              </div>
+            </div>
+            <div style="padding:18px 22px;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);border-radius:10px;">
+              <p style="font-size:13px;color:var(--gray-1);font-weight:300;line-height:1.7;">Every Louisiana business deserves a website that works as hard as they do — no matter what parish you're in.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results" class="sec results-sec">
+  <div class="sec-inner">
+    <div class="fade">
+      <div class="sec-label">Why LA Digital</div>
+      <h2 class="sec-title">Built for Louisiana.<br>Built to perform.</h2>
+    </div>
+    <div class="results-layout">
+      <div class="results-list fade">
+        <div class="result-item">
+          <div class="result-num">5<span style="font-size:16px;color:var(--gray-1)">day</span></div>
+          <div><div class="result-title">Average delivery time</div><p class="result-desc">Most agencies take 6–12 weeks. We move fast because your business can't afford to wait.</p></div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">100<span style="font-size:16px;color:var(--gray-1)">%</span></div>
+          <div><div class="result-title">Mobile optimized</div><p class="result-desc">Every site looks perfect on phones, tablets, and desktops — because that's where your customers are.</p></div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">LA</div>
+          <div><div class="result-title">Louisiana-based and local</div><p class="result-desc">We understand Louisiana customers and what it takes to win in your local market.</p></div>
+        </div>
+        <div class="result-item">
+          <div class="result-num">$0</div>
+          <div><div class="result-title">Hidden fees. Ever.</div><p class="result-desc">Flat pricing, clear scope, no surprises. You know exactly what you're getting before you sign anything.</p></div>
+        </div>
+      </div>
+            <div class="results-right fade">
+        <div style="background:var(--navy-3);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:40px 36px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:rgba(37,99,235,0.12);border:1px solid rgba(37,99,235,0.3);display:flex;align-items:center;justify-content:center;font-size:24px;">⏳</div>
+          <div>
+            <h3 style="font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:10px;">Client Reviews Pending</h3>
+            <p style="font-size:14px;color:var(--gray-1);line-height:1.75;font-weight:300;">We just launched — real reviews from real Louisiana clients are on the way. Check back soon.</p>
+          </div>
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.06);"></div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="color:var(--gold);font-size:18px;letter-spacing:3px;">★★★★★</div>
+            <span style="font-size:13px;color:var(--gray-1);font-weight:300;">Be our first review</span>
+          </div>
+          <a href="#testimonial" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--blue-light);text-decoration:none;" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">Share your experience →</a>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL SUBMIT -->
+<section id="testimonial" class="sec" style="background:var(--navy);padding-top:80px;padding-bottom:80px;">
+  <div class="sec-inner" style="max-width:700px;margin:0 auto;text-align:center;">
+    <div class="sec-label fade" style="justify-content:center;">Share Your Experience</div>
+    <h2 class="sec-title fade">Worked with us?<br>We'd love to hear it.</h2>
+    <p class="sec-sub fade" style="margin:0 auto 40px;text-align:center;">Your feedback means everything — and it helps other Louisiana businesses find us.</p>
+    <form class="cta-form fade" action="https://formspree.io/f/xqenrpjz" method="POST" style="max-width:500px;margin:0 auto;">
+      <input type="hidden" name="_next" value="https://ladigital.netlify.app/thank-you.html" />
+      <input type="hidden" name="_subject" value="New Free Audit Request - LA Digital" />
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="text" name="business" placeholder="Business name & city" required />
+      <select name="rating" required style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#a0aabb;font-family:var(--sans);font-size:14px;font-weight:300;outline:none;cursor:pointer;">
+        <option value="" disabled selected style="background:#131625;">Select a rating</option>
+        <option value="5 stars" style="background:#131625;">5 stars - Excellent</option>
+        <option value="4 stars" style="background:#131625;">4 stars - Great</option>
+        <option value="3 stars" style="background:#131625;">3 stars - Good</option>
+      </select>
+      <textarea name="review" placeholder="Tell us about your experience with LA Digital..." required rows="4" style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:var(--sans);font-size:14px;font-weight:300;outline:none;transition:border-color 0.2s;resize:vertical;line-height:1.6;"></textarea>
+      <select name="permission" style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#a0aabb;font-family:var(--sans);font-size:14px;font-weight:300;outline:none;cursor:pointer;">
+        <option value="" disabled selected style="background:#131625;">May we feature this on our website?</option>
+        <option value="yes-full" style="background:#131625;">Yes, use my full name</option>
+        <option value="yes-first" style="background:#131625;">Yes, first name only</option>
+        <option value="no" style="background:#131625;">No, keep it private</option>
+      </select>
+      <button type="submit" class="cta-submit" style="background:linear-gradient(135deg,#c9a84c,#a88430);color:#0d0f1a;box-shadow:0 6px 28px rgba(201,168,76,0.3);">Submit My Review</button>
+      <p class="cta-note">Thank you — we read every single one.</p>
+    </form>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-sec">
+  <div class="cta-inner">
+    <div class="cta-tag fade">Free Website Audit</div>
+    <h2 class="cta-title fade">Ready to grow<br>your business?</h2>
+    <p class="cta-sub fade">Tell us about your business. We'll review your current online presence and show you exactly what's holding you back — no cost, no commitment.</p>
+    <form class="cta-form fade" action="https://formspree.io/f/xqenrpjz" method="POST">
+      <input type="hidden" name="_next" value="https://ladigital.netlify.app/thank-you.html" />
+      <input type="hidden" name="_subject" value="New LA Digital Inquiry" />
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="text" name="business" placeholder="Business name" required />
+      <input type="email" name="email" placeholder="Email address" required />
+      <input type="tel" name="phone" placeholder="Phone number" />
+      <select name="website_status" required style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#a0aabb;font-family:var(--sans);font-size:14px;font-weight:300;outline:none;cursor:pointer;transition:border-color 0.2s;">
+        <option value="" disabled selected style="background:#131625;">Do you currently have a website?</option>
+        <option value="yes-needs-work" style="background:#131625;">Yes — but it needs work</option>
+        <option value="yes-starting-fresh" style="background:#131625;">Yes — but I want to start fresh</option>
+        <option value="no-need-one" style="background:#131625;">No — I need one built from scratch</option>
+        <option value="not-sure" style="background:#131625;">Not sure — I need advice</option>
+      </select>
+      <input type="url" name="current_website" placeholder="Current website URL (leave blank if you don't have one)" style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:#fff;font-family:var(--sans);font-size:14px;font-weight:300;outline:none;transition:border-color 0.2s;" />
+      <button type="submit" class="cta-submit">Get My Free Audit</button>
+      <p class="cta-note">No commitment required. We respond within 24 hours.</p>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:8px;">
+        <div style="flex:1;height:1px;background:rgba(255,255,255,0.08);"></div>
+        <span style="font-size:12px;color:var(--gray-2);">or</span>
+        <div style="flex:1;height:1px;background:rgba(255,255,255,0.08);"></div>
+      </div>
+      <a href="https://calendly.com/peytonkilgore-ladigitalco" target="_blank" rel="noopener" class="btn-ghost" style="text-align:center;justify-content:center;font-size:14px;padding:14px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.7"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+        Book a Free Call on Calendly
+      </a>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">
+      <div class="footer-mark">LA</div>
+      <span class="footer-brand">Digital</span>
+    </a>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+    <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/company/ladigitalco/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+      <div class="footer-tagline">We Build. You Grow.</div>
+      <a href="tel:9852460884" style="font-size:13px;color:var(--gray-1);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--gray-1)'">(985) 246-0884</a>
+      <a href="mailto:peytonkilgore@ladigitalco.com" style="font-size:13px;color:var(--gray-1);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--gray-1)'">peytonkilgore@ladigitalco.com</a>
+    </div>
+  </div>
+  <div class="footer-inner" style="justify-content:center;gap:40px;padding-top:0;border-top:none;margin-top:24px;padding-bottom:0;">
+    <span style="font-size:12px;color:rgba(255,255,255,0.2);">Mon–Fri: 9am–6pm CST</span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.2);">·</span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.2);">Serving Louisiana</span>
+    <span style="font-size:12px;color:rgba(255,255,255,0.2);">·</span>
+    <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.2);text-decoration:none;">Privacy Policy</a>
+    <span style="font-size:12px;color:rgba(255,255,255,0.2);">·</span>
+    <a href="terms.html" style="font-size:12px;color:rgba(255,255,255,0.2);text-decoration:none;">Terms of Service</a>
+  </div>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 LA Digital LLC · Web Design Agency · Madisonville, LA · Serving Louisiana</p>
+  </div>
+</footer>
+
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "LA Digital",
+  "description": "Professional web design for Louisiana small businesses.",
+  "url": "https://ladigitalco.netlify.app",
+  "telephone": "+19852460884",
+  "email": "peytonkilgore@ladigitalco.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madisonville",
+    "addressRegion": "LA",
+    "addressCountry": "US"
+  },
+  "areaServed": "Louisiana",
+  "serviceType": "Web Design",
+  "priceRange": "$$",
+  "sameAs": ["https://www.linkedin.com/company/ladigitalco/"]
+}
+</script>
+
+<!-- Google Analytics — paste your GA4 tag here once you set it up at analytics.google.com -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+
+<script>
+const nav = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*90); io.unobserve(e.target); }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
+</body>
+</html>
